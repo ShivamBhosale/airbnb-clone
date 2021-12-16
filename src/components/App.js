@@ -1,15 +1,39 @@
-import React from "react";
-import Navbar from './Navbar';
-import Hero from './Hero';
-import Card from "./Card";
+import React from "react"
+import Navbar from "./Navbar"
+// eslint-disable-next-line
+import Hero from "./Hero"
+import Card from "./Card"
+import data from "./data"
+/*
+Challenge:
 
-export default function App(){
+- import the array of data from data.js
+- map over the array to create <Card /> components
+- display the array of card components under the navbar
+  (in place of the current <Card /> component)
+
+Note: We haven't styled the group of components yet, so they'll
+still be block elements, stacked vertically. We'll add styling later.
+*/
+
+export default function App() {
+            // <Hero />
+    const cards = data.map(item => {
+        return (
+            <Card 
+                key={item.id}
+                {...item}
+            />
+        )
+    })        
+    
     return (
         <div>
             <Navbar />
             <Hero />
-            <Card />
-            </div>
+            <section className="cards-list">
+                {cards}
+            </section>
+        </div>
     )
 }
-
